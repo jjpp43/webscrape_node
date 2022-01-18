@@ -24,6 +24,7 @@ axios(url)
             url,
             interest
         })
+        
         //은행 이름(bank)
         //"#curr_table > tbody > tr:nth-child(2) > td.bold.left.noWrap > a"
         //"#curr_table > tbody > tr:nth-child(1) > td.bold.left.noWrap > a"
