@@ -19,15 +19,26 @@ axios(url)
             const bank = $(element).find(`:nth-child(${index + 1}) > td.bold.left.noWrap > a`).text()
             const url = $(element).find(`:nth-child(${index + 1}) > td.bold.left.noWrap > a`).attr('href')
             const interest = $(element).find(`:nth-child(${index + 1}) > td:nth-child(3)`).text()
-        
+            const nextMeeting = $(element).find(`tr:nth-child(${index + 1}) > td:nth-child(4)`).text()
+            const lastModification = $(element).find(`tr:nth-child(${index + 1}) > td:nth-child(5)`).text()
+            
             centralBanks.push({
                 bank,
                 url,
-                interest
+                interest,
+                nextMeeting,
+                lastModification
             })
         }   
     })
-    console.log(centralBanks)
+    //Print out the information
+    centralBanks.forEach((bank) => {
+        console.log(`중앙은행    : ${bank.bank}`)
+        console.log(`현재 금리   : ${bank.interest}`)
+        console.log(`다음 회의   : ${bank.nextMeeting}`)
+        console.log(`마지막 변경 : ${bank.lastModification}`)
+        console.log(`은행정보    : ${bank.url}\n`)
+    })
 
 }).catch(err => console.log(err))
 
