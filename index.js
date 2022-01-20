@@ -15,7 +15,7 @@ axios(url)
     const centralBanks = []
 
     $('#curr_table > tbody > tr', html).each((index, element) => {
-        if(index <=12) {
+        if(index <=11) {
             const bank = $(element).find(`:nth-child(${index + 1}) > td.bold.left.noWrap > a`).text()
             const url = $(element).find(`:nth-child(${index + 1}) > td.bold.left.noWrap > a`).attr('href')
             const interest = $(element).find(`:nth-child(${index + 1}) > td:nth-child(3)`).text()
@@ -29,7 +29,7 @@ axios(url)
                 nextMeeting,
                 lastModification
             })
-        }   
+        } else {return false}
     })
     //Print out the information
     centralBanks.forEach((bank) => {
@@ -42,4 +42,4 @@ axios(url)
 
 }).catch(err => console.log(err))
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+app.listen(PORT, () => console.log(`Server running on port ${PORT}\n`))
